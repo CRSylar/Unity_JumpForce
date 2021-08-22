@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{AE36C3BE-A215-3A0E-6850-B7CBA07C6BD0}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/PlayerController.cs">
+    <Files>
+      <File FileName="Assets/Script/PlayerController.cs" Line="34" Column="48" />
+      <File FileName="Assets/Script/ObstacleMovement.cs" Line="29" Column="80" />
+      <File FileName="Assets/Script/RepeatBackground.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/GameManager.cs" Line="33" Column="37" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Unity_JumpForce" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Script" expanded="True">
+                <Node name="PlayerController.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a9e21fef-4541-4cc0-972d-f46c9e741dc6" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
