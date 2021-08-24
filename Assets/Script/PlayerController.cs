@@ -12,10 +12,12 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem dirtParticle;
     public AudioClip jumpSound;
     public AudioClip crashSound;
-    public bool isOnGround = true;
+    public int isOnGround = 2;
     public float jumpForce;
     public float gravityModifier;
     public bool gameOver = false;
+    public bool dashMode = false;
+    public int score = 0;
 
 
     // Start is called before the first frame update
@@ -29,16 +31,27 @@ public class PlayerController : MonoBehaviour
 
        // playerAnimator.SetInteger("Animation_int", 7);
        
-        playerAnimator.SetFloat("Speed_f", 1);
+        playerAnimator.SetFloat("Speed_f", 1f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
+        if (Input.GetKey(KeyCode.D))
+        {
+            playerAnimator.SetFloat("Speed_Multiplier", 3);
+            dashMode = true;
+        }
+        else
+        {
+            playerAnimator.SetFloat("Speed_Multiplier", 1);
+            dashMode = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround > 0 && !gameOver)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isOnGround = false;
+            isOnGround -= 1;
             dirtParticle.Stop();
             playerAudio.PlayOneShot(jumpSound, 1.0f);
             playerAnimator.SetTrigger("Jump_trig");
@@ -47,9 +60,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") && !gameOver)
         {
-            isOnGround = true;
+            isOnGround = 2;
             dirtParticle.Play();
         }
 
@@ -63,5 +76,6 @@ public class PlayerController : MonoBehaviour
             gameOver = true;
             Debug.Log("Game Over Dude !");
         }
+
     }
 }
